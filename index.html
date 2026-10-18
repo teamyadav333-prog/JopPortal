@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JobConnect student project - find jobs and internships.">
+  <title>JobConnect | Find Your Next Opportunity</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">J</span> JobConnect</a>
+    <nav><a href="#jobs">Find Jobs</a><a href="#how">How it works</a><a href="#about">About</a></nav>
+    <button class="btn btn-outline" id="postJobBtn">Post a Job</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">YOUR CAREER STARTS HERE</span>
+        <h1>Find a job that<br><span>moves you forward.</span></h1>
+        <p>Explore opportunities, discover great teams, and take the next step in your career.</p>
+        <form class="searchbar" id="searchForm">
+          <label class="search-field"><span>⌕</span><input id="keyword" type="search" placeholder="Job title or keyword"></label>
+          <label class="search-field location-field"><span>⌖</span><input id="location" type="search" placeholder="City or location"></label>
+          <button class="btn btn-primary" type="submit">Search jobs</button>
+        </form>
+        <div class="popular"><b>Popular:</b> <button class="tag" data-keyword="Developer">Developer</button><button class="tag" data-keyword="Designer">Designer</button><button class="tag" data-keyword="Marketing">Marketing</button><button class="tag" data-keyword="Intern">Internships</button></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-circle"></div><div class="floating-card card-one"><span class="mini-icon purple">✦</span><div><b>Dream job</b><small>One click away</small></div><span class="check">✓</span></div>
+        <div class="art-window"><div class="window-dots"><i></i><i></i><i></i></div><div class="profile-line"><div class="avatar">JC</div><div><b>Your next chapter</b><small>Find your match</small></div></div><div class="skeleton long"></div><div class="skeleton"></div><div class="art-job"><div class="mini-logo">✧</div><div><b>Product Designer</b><small>Bright Studio · Remote</small></div><span>↗</span></div></div>
+        <div class="floating-card card-two"><span class="mini-icon green">↗</span><div><b>New opportunities</b><small>Keep growing</small></div></div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong id="jobCount">8+</strong><span>Sample opportunities</span></div><div><strong>4</strong><span>Career categories</span></div><div><strong>100%</strong><span>Student-project demo</span></div>
+    </section>
+
+    <section class="jobs-section" id="jobs">
+      <div class="section-heading"><div><span class="eyebrow">OPPORTUNITIES FOR YOU</span><h2>Explore open positions</h2><p>Find roles that fit your skills and ambitions.</p></div><select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option><option>Technology</option><option>Design</option><option>Marketing</option><option>Business</option></select></div>
+      <div class="job-layout"><aside class="filter-panel"><h3>Filter jobs</h3><label class="filter-label">Job type</label><label class="check-row"><input type="checkbox" value="Full-time" class="typeFilter"> Full-time</label><label class="check-row"><input type="checkbox" value="Part-time" class="typeFilter"> Part-time</label><label class="check-row"><input type="checkbox" value="Internship" class="typeFilter"> Internship</label><label class="filter-label">Work mode</label><label class="check-row"><input type="checkbox" value="Remote" class="modeFilter"> Remote</label><label class="check-row"><input type="checkbox" value="Hybrid" class="modeFilter"> Hybrid</label><label class="check-row"><input type="checkbox" value="On-site" class="modeFilter"> On-site</label><button class="clear-btn" id="clearFilters">Clear all filters</button></aside>
+        <div class="jobs-content"><div class="results-line"><span id="resultsText">Showing all opportunities</span><select id="sortJobs" aria-label="Sort jobs"><option value="newest">Newest first</option><option value="salary">Salary: high to low</option></select></div><div id="jobList" class="job-list"></div><div id="emptyState" class="empty-state" hidden><div>⌕</div><h3>No jobs found</h3><p>Try changing your search or filters.</p><button class="btn btn-outline" id="resetSearch">Reset search</button></div></div>
+      </div>
+    </section>
+
+    <section class="how-section" id="how"><span class="eyebrow">SIMPLE BY DESIGN</span><h2>Your next opportunity in 3 steps</h2><div class="steps"><article><div class="step-icon">⌕</div><h3>1. Discover</h3><p>Search roles by keyword, location, category, and work style.</p></article><article><div class="step-icon">♧</div><h3>2. Find your fit</h3><p>Review role details, salary estimates, and job requirements.</p></article><article><div class="step-icon">↗</div><h3>3. Apply</h3><p>Submit a demo application and track it in this browser.</p></article></div></section>
+
+    <section class="cta" id="about"><div><span class="eyebrow">BUILT FOR YOUR NEXT STEP</span><h2>Every career begins<br>with an opportunity.</h2><p>JobConnect is a student project demo for exploring a simpler job search experience.</p></div><a class="btn btn-light" href="#jobs">Explore jobs →</a></section>
+  </main>
+  <footer><a class="brand" href="#"><span class="brand-mark">J</span> JobConnect</a><span>College project demo · Sample job listings only</span><a href="mailto:hello@example.com">Contact</a></footer>
+
+  <dialog id="applyDialog" class="modal"><form id="applyForm" method="dialog"><button type="button" class="modal-close" data-close="applyDialog">×</button><span class="eyebrow">JOB APPLICATION</span><h2 id="applyTitle">Apply for this role</h2><p class="modal-note">Demo only: this application is saved in your current browser.</p><input type="hidden" id="applyJobId"><label>Your full name<input required id="applicantName" placeholder="e.g. Priya Sharma"></label><label>Email address<input required type="email" id="applicantEmail" placeholder="you@example.com"></label><label>Why are you a good fit?<textarea required id="applicantNote" rows="3" placeholder="Briefly describe your skills"></textarea></label><button class="btn btn-primary full" type="submit">Submit application</button></form></dialog>
+
+  <dialog id="postDialog" class="modal"><form id="postForm" method="dialog"><button type="button" class="modal-close" data-close="postDialog">×</button><span class="eyebrow">EMPLOYER DEMO</span><h2>Post a sample job</h2><p class="modal-note">New listings are saved only in this browser.</p><label>Job title<input required id="newTitle" placeholder="e.g. Junior Web Developer"></label><label>Company<input required id="newCompany" placeholder="Company name"></label><div class="form-grid"><label>Location<input required id="newLocation" placeholder="Pune / Remote"></label><label>Salary (₹ per year)<input required type="number" min="0" id="newSalary" placeholder="400000"></label></div><div class="form-grid"><label>Category<select id="newCategory"><option>Technology</option><option>Design</option><option>Marketing</option><option>Business</option></select></label><label>Job type<select id="newType"><option>Full-time</option><option>Part-time</option><option>Internship</option></select></label></div><label>Work mode<select id="newMode"><option>On-site</option><option>Hybrid</option><option>Remote</option></select></label><label>Short description<textarea required id="newDescription" rows="3" placeholder="Skills and responsibilities"></textarea></label><button class="btn btn-primary full" type="submit">Publish sample job</button></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
